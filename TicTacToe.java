@@ -12,6 +12,7 @@ public class TicTacToeGame {
 		getPlayer();  // call for option
 		currentBoard(); // call for current board
 		userMove(); // call for user to make a move 
+		desiredMove();
 	}
 	
 	// method for board 
@@ -24,7 +25,10 @@ public class TicTacToeGame {
 	 // method to choose the option
 	 static void getPlayer() {
 		 System.out.print("Choose an Option x or o : ");
+
+		 playerOption = scanner.next().charAt(0);
 		 player = scanner.next().charAt(0);
+
 		 if (player == 'x')
 			 computer='o';
 		 else
@@ -47,9 +51,9 @@ public class TicTacToeGame {
 	        }
 	        //show board method
 	        showBoard();
-	    }
+	 }
 	 static void userMove() {
-	        System.out.print("\nSelect the cell from 1 to 9 : ");
+	        System.out.print("\nSelect the Cell from 1 to 9 : ");
 	        int userChoice = scanner.nextInt();
 	        if (board[userChoice] != 'x' && board[userChoice] != 'o') {
 	            board[userChoice] = player;
@@ -58,5 +62,18 @@ public class TicTacToeGame {
 	        }
 	      
 	        currentBoard();
-	    }
+	 }
+	 //method for user move and  checking free space
+	    static void desiredMove() {
+	        System.out.print("\nSelect the Cell from 1 to 9 : ");
+	        int userChoice = scanner.nextInt();
+	        if (board[userChoice] != 'x' || board[userChoice] != 'o') {
+	            board[userChoice] = player;
+	        } else {
+	            System.out.println("Invalid Cell");
+	        }
+	        //calling current board to see the move we made
+	        currentBoard();
+	       userMove();
+	 }
 }
