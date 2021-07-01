@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class TicTacToeGame {
 	static char[] board = new char[10];
-	static char playerOption,computerOption;
+	static char player,computer;
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		getBoard();  // call for board
-		getPlayerChoice();  // call for option
+		getPlayer();  // call for option
 		currentBoard(); // call for current board
 		userMove(); // call for user to make a move 
 	}
@@ -22,14 +22,14 @@ public class TicTacToeGame {
 	 }
 	 
 	 // method to choose the option
-	 static void getPlayerChoice() {
+	 static void getPlayer() {
 		 System.out.print("Choose an Option x or o : ");
-		 playerOption = scanner.next().charAt(0);
-		 if (playerOption == 'x')
-			 computerOption='o';
+		 player = scanner.next().charAt(0);
+		 if (player == 'x')
+			 computer='o';
 		 else
-			 computerOption ='x';
-		 System.out.println("You Selected : " +playerOption);
+			 computer ='x';
+		 System.out.println("You Selected : " +player);
 	 }
 	 // method to print the board
 	 static void showBoard() {
@@ -53,7 +53,7 @@ public class TicTacToeGame {
 	        System.out.print("\nSelect the cell from 1 to 9 : ");
 	        int userChoice = scanner.nextInt();
 	        if (board[userChoice] != 'x' && board[userChoice] != 'o') {
-	            board[userChoice] = playerOption;
+	            board[userChoice] = player;
 	        } else {
 	            System.out.println("Invalid Cell");
 	        }
