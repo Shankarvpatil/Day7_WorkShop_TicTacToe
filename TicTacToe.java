@@ -24,12 +24,12 @@ public class TicTacToeGame {
 	 // method to choose the option
 	 static void getPlayer() {
 		 System.out.print("Choose an Option x or o : ");
-		 playerOption = scanner.next().charAt(0);
-		 if (playerOption == 'x')
-			 computerOption='o';
+		 player = scanner.next().charAt(0);
+		 if (player == 'x')
+			 computer='o';
 		 else
-			 computerOption ='x';
-		 System.out.println("You Selected : " +playerOption);
+			 computer ='x';
+		 System.out.println("You Selected : " +player);
 	 }
 	 static void showBoard() {
 	        System.out.println("  " + board[1] + "  |  " + board[2]  + "   | " + board[3] + "  ");
@@ -52,7 +52,7 @@ public class TicTacToeGame {
 	        System.out.print("\nSelect the cell from 1 to 9 : ");
 	        int userChoice = scanner.nextInt();
 	        if (board[userChoice] != 'x' && board[userChoice] != 'o') {
-	            board[userChoice] = playerOption;
+	            board[userChoice] = player;
 	        } else {
 	            System.out.println("Invalid Cell");
 	        }
