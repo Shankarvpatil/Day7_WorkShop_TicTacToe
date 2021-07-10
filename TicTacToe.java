@@ -4,15 +4,14 @@ import java.util.Scanner;
 
 public class TicTacToeGame {
 	static char[] board = new char[10];
-	static char player,computer;
+	static char playerOption,computerOption;
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		getBoard();  // call for board
-		getPlayer();  // call for option
+		getPlayerChoice();  // call for option
 		currentBoard(); // call for current board
 		userMove(); // call for user to make a move 
-		desiredMove();
 	}
 	
 	// method for board 
@@ -23,17 +22,19 @@ public class TicTacToeGame {
 	 }
 	 
 	 // method to choose the option
-	 static void getPlayer() {
+	 static void getPlayerChoice() {
 		 System.out.print("Choose an Option x or o : ");
 
 		 playerOption = scanner.next().charAt(0);
+		 if (playerOption == 'x')
+			 computerOption='o';
 		 player = scanner.next().charAt(0);
 
 		 if (player == 'x')
 			 computer='o';
 		 else
-			 computer ='x';
-		 System.out.println("You Selected : " +player);
+			 computerOption ='x';
+		 System.out.println("You Selected : " +playerOption);
 	 }
 	 static void showBoard() {
 	        System.out.println("  " + board[1] + "  |  " + board[2]  + "   | " + board[3] + "  ");
@@ -51,29 +52,16 @@ public class TicTacToeGame {
 	        }
 	        //show board method
 	        showBoard();
-	 }
+	    }
 	 static void userMove() {
-	        System.out.print("\nSelect the Cell from 1 to 9 : ");
+	        System.out.print("\nSelect the cell from 1 to 9 : ");
 	        int userChoice = scanner.nextInt();
 	        if (board[userChoice] != 'x' && board[userChoice] != 'o') {
-	            board[userChoice] = player;
+	            board[userChoice] = playerOption;
 	        } else {
 	            System.out.println("Invalid Cell");
 	        }
 	      
 	        currentBoard();
-	 }
-	 //method for user move and  checking free space
-	    static void desiredMove() {
-	        System.out.print("\nSelect the Cell from 1 to 9 : ");
-	        int userChoice = scanner.nextInt();
-	        if (board[userChoice] != 'x' || board[userChoice] != 'o') {
-	            board[userChoice] = player;
-	        } else {
-	            System.out.println("Invalid Cell");
-	        }
-	        //calling current board to see the move we made
-	        currentBoard();
-	       userMove();
-	 }
+	    }
 }
